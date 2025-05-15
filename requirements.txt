@@ -1,0 +1,6 @@
+selenium
+pytest
+allure-pytest
+locust
+pytest-rerunfailures
+pytest-html
