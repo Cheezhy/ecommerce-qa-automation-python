@@ -1,6 +1,8 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from datetime import datetime
+import time
 
 def test_signup(driver):
     driver.get("https://automationexercise.com")
@@ -8,13 +10,11 @@ def test_signup(driver):
 
     wait.until(EC.presence_of_element_located((By.LINK_TEXT, "Signup / Login"))).click()
     wait.until(EC.presence_of_element_located((By.NAME, "name"))).send_keys("Test User")
-    driver.find_element(By.NAME, "email").send_keys("testuser_20250519_182651_final@example.com")
+
+    # Generate a unique email every time
+    unique_email = f"testuser_{datetime.now().strftime('%Y%m%d_%H%M%S')}@example.com"
+    driver.find_element(By.NAME, "email").send_keys(unique_email)
     driver.find_element(By.XPATH, "//button[contains(text(),'Signup')]").click()
 
-    # Broaden condition with better timeout
-    wait.until(
-        EC.presence_of_element_located((
-            By.XPATH,
-            "//*[contains(text(),'Enter Account Information') or contains(text(),'Account Information')]"
-        ))
-    )
+    # Wait for account info page
+    wait.until(EC.presence_of_element_located((By.XPATH, "//*[contains(text(),'Account Information')]")))
