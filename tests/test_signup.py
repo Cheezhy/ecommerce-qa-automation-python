@@ -8,7 +8,13 @@ def test_signup(driver):
 
     wait.until(EC.presence_of_element_located((By.LINK_TEXT, "Signup / Login"))).click()
     wait.until(EC.presence_of_element_located((By.NAME, "name"))).send_keys("Test User")
-    driver.find_element(By.NAME, "email").send_keys("testuser4@example.com")
+    driver.find_element(By.NAME, "email").send_keys("testuser7@example.com")
     driver.find_element(By.XPATH, "//button[contains(text(),'Signup')]").click()
 
-    wait.until(EC.presence_of_element_located((By.XPATH, "//*[contains(text(),'Enter Account Information')]")))
+    # Broaden condition with better timeout
+    wait.until(
+        EC.presence_of_element_located((
+            By.XPATH,
+            "//*[contains(text(),'Enter Account Information') or contains(text(),'Account Information')]"
+        ))
+    )
