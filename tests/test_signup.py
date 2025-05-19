@@ -1,11 +1,13 @@
-import time
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 def test_signup(driver):
     driver.get("https://automationexercise.com")
-    driver.find_element(By.LINK_TEXT, "Signup / Login").click()
-    time.sleep(2)
-    driver.find_element(By.NAME, "name").send_keys("Test User")
-    driver.find_element(By.XPATH, "//input[@data-qa='signup-email']").send_keys("testsignup_user@example.com")
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.LINK_TEXT, "Signup / Login"))).click()
+
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "name"))).send_keys("Test User")
+    driver.find_element(By.NAME, "email").send_keys("testuser2@example.com")
     driver.find_element(By.XPATH, "//button[contains(text(),'Signup')]").click()
-    assert "Enter Account Information" in driver.page_source
+
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(text(),'Enter Account Information')]")))

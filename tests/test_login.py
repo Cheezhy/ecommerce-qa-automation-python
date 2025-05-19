@@ -1,11 +1,13 @@
-import time
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 def test_valid_login(driver):
     driver.get("https://automationexercise.com")
-    driver.find_element(By.LINK_TEXT, "Signup / Login").click()
-    time.sleep(2)
-    driver.find_element(By.NAME, "email").send_keys("automationtestuser@example.com")
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.LINK_TEXT, "Signup / Login"))).click()
+
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "email"))).send_keys("automationtestuser@example.com")
     driver.find_element(By.NAME, "password").send_keys("test123")
     driver.find_element(By.XPATH, "//button[contains(text(),'Login')]").click()
-    assert "Logged in as" in driver.page_source
+
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(text(),'Logged in as')]")))
