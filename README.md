@@ -1,19 +1,17 @@
 
 # Ecommerce QA Automation Project
 
-This is an end-to-end automation testing project built for [automationexercise.com](https://automationexercise.com), a mock e-commerce website used for QA practice and UI validation. This project was created as part of my hands-on experience with Selenium, Pytest, and GitHub.
-
-The goal is to simulate real-world QA testing tasks using Python-based tools and frameworks.
+This is an end-to-end automation testing project built for [automationexercise.com](https://automationexercise.com), a mock e-commerce website used for QA practice and UI validation. The project simulates real-world QA testing using Selenium, Pytest, and GitHub Actions.
 
 ---
 
 ## 🚀 Tech Stack
 
-- Python 3.10+
+- Python 3.12
 - Selenium WebDriver
 - Pytest
-- Allure Reports (optional)
 - Git + GitHub
+- GitHub Actions (CI/CD)
 
 ---
 
@@ -21,70 +19,84 @@ The goal is to simulate real-world QA testing tasks using Python-based tools and
 
 ```
 ecommerce_qa_automation/
-├── tests/                # Pytest test cases
-│   ├── test_smoke.py     # Basic homepage load test
-│   └── test_login.py     # Login with valid credentials
-├── pages/                # (Page Objects – to be added later)
-├── utils/                # Driver factory & helper files
-├── conftest.py           # Pytest fixtures for browser setup
-├── requirements.txt      # Project dependencies
-└── README.md             # Project overview and usage
+│
+├── tests/                  # All test cases
+│   ├── test_smoke.py           # Home page load test
+│   ├── test_login.py           # Valid login test
+│   ├── test_invalid_login.py   # Invalid login error
+│   ├── test_signup.py          # User registration test
+│   ├── test_logout.py          # Logout after login
+│   ├── test_add_to_cart.py     # Add product to cart
+│   └── test_checkout.py        # Complete checkout flow
+│
+├── utils/                 # Helper functions and browser config
+│   └── driver_factory.py
+│
+├── .github/workflows/     # GitHub Actions CI
+│   └── python-tests.yml
+│
+├── requirements.txt       # Python dependencies
+└── README.md              # Project overview
 ```
 
 ---
 
 ## ✅ Test Scenarios Implemented
 
-- **Smoke Test** – Opens homepage and checks page title  
-- **Login Test** – Enters test credentials, logs in, and validates successful login message
+- ✔️ **Smoke Test** – Homepage title validation
+- ✔️ **Valid Login** – Login with test credentials
+- ✔️ **Invalid Login** – Error for wrong credentials
+- ✔️ **Signup** – Full new user registration
+- ✔️ **Logout** – Logs out after login
+- ✔️ **Add to Cart** – Adds item to cart
+- ✔️ **Checkout** – Completes checkout with dummy payment
 
 ---
 
 ## 🛠️ Installation
 
-1. **Clone this repo:**
+### 1. Clone the repo
 
 ```bash
 git clone https://github.com/Cheezhy/ecommerce-qa-automation-python.git
 cd ecommerce-qa-automation-python
 ```
 
-2. **Install dependencies:**
+### 2. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Run tests:**
+### 3. Run tests
 
 ```bash
-pytest tests/test_smoke.py
-pytest tests/test_login.py
+pytest tests/
 ```
 
 ---
 
-## 🔐 Credentials Used
+## 👤 Dummy Credentials Used
 
-This is a public test site. The test uses the following dummy credentials:
-
-- **Email:** `automationtestuser@example.com`  
-- **Password:** `test123`
-
----
-
-## 🎯 Future Improvements
-
-- Add Page Object Model (POM) structure  
-- Integrate with GitHub Actions for CI  
-- Expand test coverage: Signup, Add to Cart, Checkout  
-- Include visual test reporting (Allure)
+```text
+Email: automationtestuser@example.com
+Password: test123
+```
 
 ---
 
-## 👋 Author
+## 🧪 Continuous Integration
 
-Built by **Cheezhy**  
-GitHub: [Cheezhy](https://github.com/Cheezhy)
+This repo uses **GitHub Actions** to:
+- Automatically install Chrome in CI
+- Run all tests on each push
+- Validate success using Pytest + Selenium
 
-This project is part of my QA automation learning journey — feedback is welcome!
+---
+
+## 🙋 Author
+
+Built by Cheezhy  
+🔗 [github.com/Cheezhy](https://github.com/Cheezhy)
+
+This was created for QA testing practice and professional portfolio development.
