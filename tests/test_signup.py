@@ -8,7 +8,7 @@ def test_signup(driver):
 
     wait.until(EC.presence_of_element_located((By.LINK_TEXT, "Signup / Login"))).click()
     wait.until(EC.presence_of_element_located((By.NAME, "name"))).send_keys("Test User")
-    driver.find_element(By.NAME, "email").send_keys("testuser_20250519_181350_wnak@example.com")
+    driver.find_element(By.NAME, "email").send_keys("testuser_20250519_182651_final@example.com")
     driver.find_element(By.XPATH, "//button[contains(text(),'Signup')]").click()
 
     # Broaden condition with better timeout
