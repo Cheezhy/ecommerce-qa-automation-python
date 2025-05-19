@@ -1,6 +1,8 @@
 
 # Ecommerce QA Automation Project
 
+![Test Status](https://github.com/Cheezhy/ecommerce-qa-automation-python/actions/workflows/python-tests.yml/badge.svg)
+
 This is an end-to-end automation testing project built for [automationexercise.com](https://automationexercise.com), a mock e-commerce website used for QA practice and UI validation. The project simulates real-world QA testing using Selenium, Pytest, and GitHub Actions.
 
 ---
