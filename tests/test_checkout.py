@@ -1,6 +1,5 @@
-import pytest
-from selenium.webdriver.common.by import By
 import time
+from selenium.webdriver.common.by import By
 
 def test_checkout(driver):
     driver.get("https://automationexercise.com")
