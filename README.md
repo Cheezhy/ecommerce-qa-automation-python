@@ -1,4 +1,3 @@
-
 # Ecommerce QA Automation Project
 
 ![Test Status](https://github.com/Cheezhy/ecommerce-qa-automation-python/actions/workflows/python-tests.yml/badge.svg)
@@ -26,7 +25,6 @@ ecommerce_qa_automation/
 │   ├── test_smoke.py           # Home page load test
 │   ├── test_login.py           # Valid login test
 │   ├── test_invalid_login.py   # Invalid login error
-│   ├── test_signup.py          # User registration test
 │   ├── test_logout.py          # Logout after login
 │   ├── test_add_to_cart.py     # Add product to cart
 │   └── test_checkout.py        # Complete checkout flow
@@ -48,7 +46,6 @@ ecommerce_qa_automation/
 - ✔️ **Smoke Test** – Homepage title validation
 - ✔️ **Valid Login** – Login with test credentials
 - ✔️ **Invalid Login** – Error for wrong credentials
-- ✔️ **Signup** – Full new user registration
 - ✔️ **Logout** – Logs out after login
 - ✔️ **Add to Cart** – Adds item to cart
 - ✔️ **Checkout** – Completes checkout with dummy payment
